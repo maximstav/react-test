@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Product } from "../types/Product";
-//import ProductCard from "../components/Productcard";
 import ProductCard from "../components/ProductCard";
 
 const HomePage = () => {
@@ -8,18 +7,22 @@ const HomePage = () => {
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   return (
-    <div>
-      <h2>Product List</h2>
-      <div className="grid">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </div>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "1rem",
+        padding: "1rem",
+      }}
+    >
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
