@@ -13,6 +13,15 @@ const CartItemWrapper = styled.div`
   background-color: #1c1c1c;
   border-radius: 8px;
   padding: 1rem;
+  flex-wrap: wrap; /* Allow items to wrap on small screens */
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
 `;
 
 const ItemImageWrapper = styled.div`
@@ -25,6 +34,12 @@ const ItemImageWrapper = styled.div`
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 const ItemImage = styled.img`
@@ -41,27 +56,57 @@ const ItemImage = styled.img`
 const ItemDetails = styled.div`
   flex: 1;
   color: #ddd;
+  padding-left: 1rem;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    padding-left: 0;
+    width: 100%;
+  }
 `;
 
 const ItemTitle = styled.h4`
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ItemPrice = styled.p`
   font-size: 1rem;
   margin-bottom: 0.5rem;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const ItemQuantity = styled.p`
   font-size: 1rem;
   margin-bottom: 0.5rem;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const ActionButtons = styled.div`
   display: flex;
   gap: 0.5rem;
-  flex-direction: column;
+  flex-direction: row;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -80,6 +125,11 @@ const ActionButton = styled.button`
   &:active {
     background-color: #388e3c;
   }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const RemoveButton = styled.button`
@@ -97,6 +147,11 @@ const RemoveButton = styled.button`
 
   &:active {
     background-color: #d32f2f;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 

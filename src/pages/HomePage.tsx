@@ -13,15 +13,23 @@ const PageContainer = styled.div`
   color: #e1e1e1;
   padding: 2rem;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const CoverPhoto = styled.div`
   background-image: url(${coverPhoto});
   background-size: cover;
   background-position: center;
-  height: 300px; // Adjust the height as needed
-  border-radius: 10px; // Optional, for rounded corners
+  height: 300px;
+  border-radius: 10px;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 `;
 
 const Title = styled.h1`
@@ -29,6 +37,11 @@ const Title = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #f1f1f1;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 const FiltersContainer = styled.div`
@@ -36,6 +49,11 @@ const FiltersContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const FilterLabel = styled.label`
@@ -70,6 +88,15 @@ const ProductGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr; // Two items per row on mobile
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; // One item per row on very small screens
+  }
 `;
 
 const HomePage: React.FC = () => {
@@ -80,7 +107,6 @@ const HomePage: React.FC = () => {
 
   const { addToCart } = useCart();
 
-  // Fetch products based on category from URL
   const fetchProducts = (category: string) => {
     const url =
       category === "all"
@@ -103,12 +129,10 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Load categories
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
 
-    // Initial load
     fetchProducts("all");
   }, []);
 
