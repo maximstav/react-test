@@ -25,14 +25,14 @@ const CardContainer = styled.div`
 const ProductImageWrapper = styled.div`
   width: 100%;
   height: 0;
-  padding-top: 75%; // Aspect ratio 4:3 (adjust this ratio to your needs)
+  padding-top: 75%; // Aspect ratio 4:3
   position: relative;
   background-color: #fff; // White background behind the image
   margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px; // Added rounded corners for the white background
+  border-radius: 10px; // rounded corners for the white background
   overflow: hidden; // Ensure the image inside respects the rounded edges
 `;
 
