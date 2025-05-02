@@ -2,6 +2,75 @@ import React, { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import ProductCard from "../components/ProductCard";
 import { Product } from "../types/Product";
+import styled from "styled-components";
+
+// Importing the cover photo
+import coverPhoto from "../assets/website_cover.png";
+
+// Styled components for the page
+const PageContainer = styled.div`
+  background-color: #121212;
+  color: #e1e1e1;
+  padding: 2rem;
+  min-height: 100vh;
+`;
+
+const CoverPhoto = styled.div`
+  background-image: url(${coverPhoto});
+  background-size: cover;
+  background-position: center;
+  height: 300px; // Adjust the height as needed
+  border-radius: 10px; // Optional, for rounded corners
+  margin-bottom: 2rem;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #f1f1f1;
+`;
+
+const FiltersContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+`;
+
+const FilterLabel = styled.label`
+  font-size: 1.1rem;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+`;
+
+const FilterSelect = styled.select`
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #555;
+  }
+
+  &:focus {
+    background-color: #444;
+  }
+`;
+
+const ProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+`;
 
 const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -11,7 +80,7 @@ const HomePage: React.FC = () => {
 
   const { addToCart } = useCart();
 
-  // fetch products based on category from URL
+  // Fetch products based on category from URL
   const fetchProducts = (category: string) => {
     const url =
       category === "all"
@@ -48,13 +117,16 @@ const HomePage: React.FC = () => {
   }, [selectedCategory, sortOrder]);
 
   return (
-    <div className="container">
-      <h1>Products</h1>
+    <PageContainer>
+      {/* Cover Photo Section */}
+      <CoverPhoto />
 
-      <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
-        <label>
-          Filter by category:{" "}
-          <select
+      <Title>Products</Title>
+
+      <FiltersContainer>
+        <FilterLabel>
+          Filter by category:
+          <FilterSelect
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -64,30 +136,23 @@ const HomePage: React.FC = () => {
                 {category}
               </option>
             ))}
-          </select>
-        </label>
+          </FilterSelect>
+        </FilterLabel>
 
-        <label>
-          Sort by price:{" "}
-          <select
+        <FilterLabel>
+          Sort by price:
+          <FilterSelect
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
           >
             <option value="none">None</option>
             <option value="asc">Lowest to Highest</option>
             <option value="desc">Highest to Lowest</option>
-          </select>
-        </label>
-      </div>
+          </FilterSelect>
+        </FilterLabel>
+      </FiltersContainer>
 
-      <div
-        className="product-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: "1rem",
-        }}
-      >
+      <ProductGrid>
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -95,8 +160,8 @@ const HomePage: React.FC = () => {
             onAddToCart={() => addToCart(product)}
           />
         ))}
-      </div>
-    </div>
+      </ProductGrid>
+    </PageContainer>
   );
 };
 
