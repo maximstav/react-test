@@ -17,24 +17,21 @@ A sleek, responsive product catalog application built with React, TypeScript, an
 
 ## 📸 Screenshots
 
-<!-- Add your screenshots here -->
 <div align="center">
-<table>
-  <tr>
-    <td align="center"><b>🏠 Home Page</b></td>
-    <td align="center"><b>🛒 Shopping Cart</b></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/home.png" alt="Home Page" width="400"/></td>
-    <td><img src="screenshots/cart.png" alt="Cart Page" width="400"/></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><b>📱 Mobile Responsive View</b></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center"><img src="screenshots/mobile.png" alt="Mobile View" width="300"/></td>
-  </tr>
-</table>
+
+### 🏠 Home Page
+<img src="screenshots/home.png" alt="Home Page" width="100%"/>
+
+---
+
+### 🛒 Shopping Cart
+<img src="screenshots/cart.png" alt="Cart Page" width="100%"/>
+
+---
+
+### 📱 Mobile Responsive View
+<img src="screenshots/mobile.png" alt="Mobile View" width="350"/>
+
 </div>
 
 ---
