@@ -9,7 +9,7 @@ A sleek, responsive product catalog application built with React, TypeScript, an
 [![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Styled Components](https://img.shields.io/badge/Styled_Components-6.1-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
 
-[Live Demo](#) · [Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started)
+[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started)
 
 </div>
 
@@ -29,12 +29,10 @@ A sleek, responsive product catalog application built with React, TypeScript, an
     <td><img src="screenshots/cart.png" alt="Cart Page" width="400"/></td>
   </tr>
   <tr>
-    <td align="center"><b>📱 Mobile View</b></td>
-    <td align="center"><b>🔍 Category Filter</b></td>
+    <td colspan="2" align="center"><b>📱 Mobile Responsive View</b></td>
   </tr>
   <tr>
-    <td><img src="screenshots/mobile.png" alt="Mobile View" width="400"/></td>
-    <td><img src="screenshots/filter.png" alt="Filter Feature" width="400"/></td>
+    <td colspan="2" align="center"><img src="screenshots/mobile.png" alt="Mobile View" width="300"/></td>
   </tr>
 </table>
 </div>
